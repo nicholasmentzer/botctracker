@@ -10,10 +10,16 @@ environment:
   sdk: ^3.5.3
 
 dependencies:
+  cloud_firestore: ^5.6.8
+  firebase_auth: ^5.5.4
+  firebase_core: ^3.13.1
+  fl_chart: ^0.65.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  google_sign_in: ^6.2.2
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +36,12 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+    - assets/characters/trouble_brewing.txt
+    - assets/characters/bad_moon_rising.txt
+    - assets/characters/sects_and_violets.txt
+    - assets/characters/all_characters.txt
+  
+  fonts:
+    - family: Cinzel
+      fonts:
+        - asset: assets/fonts/Cinzel/Cinzel-VariableFont_wght.ttf

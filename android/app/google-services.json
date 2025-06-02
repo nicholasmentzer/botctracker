@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "472172044713",
+    "project_id": "botctracker-6db74",
+    "storage_bucket": "botctracker-6db74.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472172044713:android:7a1c4acdbc7b98c4cca4b8",
+        "android_client_info": {
+          "package_name": "com.example.botctracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472172044713-jklhcojd0k6mb2s8g2eem6478onhjglt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.botctracker",
+            "certificate_hash": "af2aa7d551f2593394e16565a2b4f02eab1c9a17"
+          }
+        },
+        {
+          "client_id": "472172044713-kn3bafl78vapd0imca280e64lfgc7n0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNqiG2hsVXB708da8_MYHLi5KL8NoRnJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472172044713-kn3bafl78vapd0imca280e64lfgc7n0d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "472172044713-qahgc38lf899js5dee5cppolmegrmeab.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.botctracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
