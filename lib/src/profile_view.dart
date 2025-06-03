@@ -32,7 +32,6 @@ class ProfileView extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: () async {
                 await FirebaseAuth.instance.signOut();
-                // You will automatically return to the login page via AuthGate
               },
               icon: const Icon(Icons.logout),
               label: const Text('Sign Out'),

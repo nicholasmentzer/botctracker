@@ -16,8 +16,10 @@ dependencies:
   fl_chart: ^0.65.0
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.3
   flutter_localizations:
     sdk: flutter
+  flutter_native_splash: ^2.4.4
   google_sign_in: ^6.2.2
   shared_preferences: ^2.5.3
 
@@ -40,8 +42,23 @@ flutter:
     - assets/characters/bad_moon_rising.txt
     - assets/characters/sects_and_violets.txt
     - assets/characters/all_characters.txt
+    - assets/images/splash_logo.png
   
   fonts:
     - family: Cinzel
       fonts:
         - asset: assets/fonts/Cinzel/Cinzel-VariableFont_wght.ttf
+
+flutter_native_splash:
+  color: "#000000"
+  image: assets/images/splash_logo.png
+  android: true
+  ios: true
+  fullscreen: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/splash_logo.png"
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/images/splash_logo.png"

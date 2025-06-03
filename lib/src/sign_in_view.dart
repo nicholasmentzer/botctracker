@@ -8,7 +8,7 @@ class SignInView extends StatelessWidget {
   Future<void> _signInWithGoogle(BuildContext context) async {
     try {
       final googleUser = await GoogleSignIn().signIn();
-      if (googleUser == null) return; // cancelled
+      if (googleUser == null) return;
 
       final googleAuth = await googleUser.authentication;
       final credential = GoogleAuthProvider.credential(

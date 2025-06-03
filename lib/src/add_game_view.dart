@@ -21,14 +21,12 @@ Future<void> saveGameToFirestore({
     'timestamp': FieldValue.serverTimestamp(),
   };
 
-  // Save game under the user's subcollection
   await firestore
       .collection('users')
       .doc(user.uid)
       .collection('games')
       .add(gameData);
 
-  // Reference to the global stats document
   final statsRef = firestore.collection('stats').doc('global');
   final personalStatsRef = firestore
       .collection('users')
@@ -40,16 +38,13 @@ Future<void> saveGameToFirestore({
     final snapshot = await transaction.get(statsRef);
     final data = snapshot.exists ? snapshot.data()! : {};
 
-    // Get current nested maps (or start fresh)
     final currentScriptCounts =
         Map<String, dynamic>.from(data['scriptCounts'] ?? {});
     final currentRoleCounts =
         Map<String, dynamic>.from(data['roleCounts'] ?? {});
 
-    // Update script count
     currentScriptCounts[script] = (currentScriptCounts[script] ?? 0) + 1;
 
-    // Update each role count
     for (final role in roles) {
       currentRoleCounts[role] = (currentRoleCounts[role] ?? 0) + 1;
     }
@@ -73,7 +68,6 @@ Future<void> saveGameToFirestore({
     final personalRoleTotalCounts =
         Map<String, dynamic>.from(personalData['roleTotalCounts'] ?? {});
 
-    // Update win/loss counts per role
     for (final role in roles) {
       personalRoleTotalCounts[role] = (personalRoleTotalCounts[role] ?? 0) + 1;
 
@@ -190,7 +184,6 @@ class _AddGameViewState extends State<AddGameView> {
                 ),
               ),
               if (_selectedScript == 'Custom') const SizedBox(height: 16),
-
               if (_selectedScript == 'Custom')
                 TextFormField(
                   controller: _customScriptController,
@@ -200,8 +193,6 @@ class _AddGameViewState extends State<AddGameView> {
                   ),
                 ),
               const SizedBox(height: 20),
-
-              // Dynamic role fields
               ..._roleControllers.asMap().entries.map((entry) {
                 final index = entry.key;
                 final controller = entry.value;
@@ -230,7 +221,6 @@ class _AddGameViewState extends State<AddGameView> {
                   ),
                 );
               }),
-
               Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton.icon(
@@ -240,8 +230,6 @@ class _AddGameViewState extends State<AddGameView> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Team & Winning Team
               DropdownButtonFormField<String>(
                 value: _team,
                 items: ['Good', 'Evil']
@@ -268,8 +256,6 @@ class _AddGameViewState extends State<AddGameView> {
                 ),
               ),
               const SizedBox(height: 30),
-
-              // Submit Button
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {

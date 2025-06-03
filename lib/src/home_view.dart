@@ -11,58 +11,75 @@ class HomeView extends StatelessWidget {
     final tileStyle = Theme.of(context).textTheme.titleMedium;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('BOTC Tracker'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-              'Welcome to your Blood on the Clocktower tracker!',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/background.png',
+              fit: BoxFit.cover,
+              color: Colors.black.withOpacity(0.4),
+              colorBlendMode: BlendMode.darken,
             ),
-            const SizedBox(height: 32),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 24,
-                crossAxisSpacing: 24,
+          ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _HomeTile(
-                    icon: Icons.add_circle_outline,
-                    label: 'Add Game',
-                    onTap: () => Navigator.pushNamed(context, '/add-game'),
-                    color: Colors.redAccent,
+                  const Text(
+                    'Track your games.\nUncover statistic secrets.',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
-                  _HomeTile(
-                    icon: Icons.save_alt,
-                    label: 'Saved Games',
-                    onTap: () => Navigator.pushNamed(context, '/saved-games'),
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  _HomeTile(
-                    icon: Icons.bar_chart,
-                    label: 'Statistics',
-                    onTap: () =>
-                        Navigator.pushNamed(context, '/statistics-selection'),
-                    color: Colors.teal,
-                  ),
-                  _HomeTile(
-                    icon: Icons.settings,
-                    label: 'Settings',
-                    onTap: () =>
-                        Navigator.pushNamed(context, SettingsView.routeName),
-                    color: Colors.blueGrey,
+                  const SizedBox(height: 32),
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 24,
+                      crossAxisSpacing: 24,
+                      children: [
+                        _HomeTile(
+                          icon: Icons.add_circle_outline,
+                          label: 'Add Game',
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/add-game'),
+                          color: Colors.redAccent,
+                        ),
+                        _HomeTile(
+                          icon: Icons.save_alt,
+                          label: 'Saved Games',
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/saved-games'),
+                          color: Colors.deepPurpleAccent,
+                        ),
+                        _HomeTile(
+                          icon: Icons.bar_chart,
+                          label: 'Statistics',
+                          onTap: () => Navigator.pushNamed(
+                              context, '/statistics-selection'),
+                          color: Colors.teal,
+                        ),
+                        _HomeTile(
+                          icon: Icons.settings,
+                          label: 'Settings',
+                          onTap: () => Navigator.pushNamed(
+                              context, SettingsView.routeName),
+                          color: Colors.blueGrey,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -79,7 +79,7 @@ class _GameDetailsViewState extends State<GameDetailsView> {
       'winningTeam': _winningTeam,
     });
 
-    Navigator.pop(context); // go back after saving
+    Navigator.pop(context);
   }
 
   Future<void> _deleteGame() async {
@@ -90,7 +90,7 @@ class _GameDetailsViewState extends State<GameDetailsView> {
         .doc(widget.gameId)
         .delete();
 
-    Navigator.pop(context); // go back after deleting
+    Navigator.pop(context);
   }
 
   @override
