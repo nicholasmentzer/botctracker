@@ -70,7 +70,9 @@ class SettingsView extends StatelessWidget {
           ElevatedButton.icon(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
-              // AuthGate will automatically take user back to login screen
+              if (context.mounted) {
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              }
             },
             icon: const Icon(Icons.logout),
             label: const Text('Sign Out'),
