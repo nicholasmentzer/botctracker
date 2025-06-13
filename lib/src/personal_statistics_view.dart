@@ -39,7 +39,8 @@ class _PersonalStatisticsViewState extends State<PersonalStatisticsView> {
           }
 
           if (!snapshot.hasData || !snapshot.data!.exists) {
-            return const Center(child: Text("In Progress - Check back later!"));
+            return const Center(
+                child: Text("No data - enter some games first!"));
           }
 
           final data = snapshot.data!.data() as Map<String, dynamic>;
